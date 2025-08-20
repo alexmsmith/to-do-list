@@ -12,5 +12,5 @@
         <button class="task__btn" id="add-task-btn">Add</button>
     </div>
     
-    @include('partials.table')
+    <div class="task-list" id="task-list"></div>
 @endsection
