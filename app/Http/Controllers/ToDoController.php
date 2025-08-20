@@ -25,7 +25,7 @@ class ToDoController extends Controller
     public function validateData(Request $request): array
     {
         return $request->validate([
-            'task' => 'required|string|max:255',
+            'task_description' => 'required|string|max:255',
         ]);
     }
 
@@ -37,44 +37,24 @@ class ToDoController extends Controller
     public function index(): JsonResponse
     {
         try {
-            $todoItems = $this->ToDoService->get();
+            $todoItems = $this->todoService->get();
             return response()->json($todoItems);
         } catch (\Exception $e) {
             return response()->json(["error" => $e->getMessage()], 404);
         }
     }
 
-    //todo: validate function
-
     /**
-     * @return JsonResponse
-     * 
-     * Perform an action, i.e., create/complete/delete todo item
+     * @param Request
+     * @return JsonReponse
      */
-    public function action(string $action, int $todoId, Request $request): JsonResponse
+    public function create(Request $request): JsonResponse
     {
         try {
-            switch ($action) {
-                case "create":
-                    $validateData = $this->validateData($request);
-                    $response = $this->ToDoService->store($validateData);
-                    break;
-                case "complete":
-                    $response = $this->ToDoService->complete($todoId);
-                    break;
-                case "delete":
-                    $response = $this->ToDoService->delete($todoId);
-                    break;
-                default:
-                    return response()->json([
-                        "message" => "Invalid action."
-                    ], 400);
-            }
+            $validateData = $this->validateData($request);
+            $response = $this->todoService->create($validateData);
 
-            return response()->json([
-                "success" => true,
-                "message" => $response["message"]
-            ]);
+            return response()->json($response);
         } catch (\Exception $e) {
             return response()->json(["error" => $e->getMessage()], 404);
         }

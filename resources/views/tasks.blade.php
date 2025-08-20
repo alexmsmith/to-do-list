@@ -6,9 +6,10 @@
             <input
                 type="text"
                 placeholder="Insert task name"
+                id="task-input"
             />
         </div>
-        <button class="task__btn">Add</button>
+        <button class="task__btn" id="add-task-btn">Add</button>
     </div>
     
     @include('partials.table')
