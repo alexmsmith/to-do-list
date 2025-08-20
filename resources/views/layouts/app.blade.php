@@ -12,8 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+    @include('partials.header')
+
     <div class="container">
         @yield('content')
     </div>
+
+    @include('partials.footer')
 </body>
 </html>
