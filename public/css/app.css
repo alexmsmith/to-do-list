@@ -1,3 +1,72 @@
+body {
+    background-color: #F1F1F1!important;
+}
+
+header {
+    padding: 20px 0 60px 0;
+}
+
+footer {
+    padding-top: 150px;
+    text-align: center;
+}
+
+/* Main content containing insert task action, and the task list */
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 30%;
+}
+.task__input input[type="text"] {
+    width: 90%;
+    padding: 5px 0 5px 10px;
+    border: 1px solid #DBDBDB; border-radius: 5px;
+    font-size: 14px;
+}
+.task__btn {
+    width: 90%;
+    padding: 5px 0 5px 0;
+    border: none; border-radius: 4px;
+    background-color: #337AB7; color: white;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: white;
+    border: 2px solid #DBDBDB; border-radius: 6px;
+    padding: 15px;
+}
+.task-list__header {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-weight: 600;
+    padding: 5px 0 10px 10px;
+}
+.task-list__item {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    border-top: 1px solid #DBDBDB;
+    padding: 10px;
+}
+.task-list__id {
+    font-weight: 600;
+}
+.task-list__actions {
+    margin-left: auto;
+}
+
+/* Task complete and delete action buttons */
 .action-btn {
     font-weight: 600;
     width: 40px; height: 30px;
@@ -6,11 +75,9 @@
     cursor: pointer;
     color: white;
 }
-
 .action-btn--complete {
     background-color: #5CB85C;
 }
-
 .action-btn--delete {
     background-color: #D9534F;
 }
