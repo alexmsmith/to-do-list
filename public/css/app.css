@@ -1,0 +1,16 @@
+.action-btn {
+    font-weight: 600;
+    width: 40px; height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.action-btn--complete {
+    background-color: #5CB85C;
+}
+
+.action-btn--delete {
+    background-color: #D9534F;
+}
