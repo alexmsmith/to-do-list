@@ -45,8 +45,10 @@ class ToDoController extends Controller
     }
 
     /**
-     * @param Request
+     * @param Request $request
      * @return JsonReponse
+     * 
+     * Create a new todo item in the list
      */
     public function create(Request $request): JsonResponse
     {
@@ -57,6 +59,40 @@ class ToDoController extends Controller
             return response()->json($response);
         } catch (\Exception $e) {
             return response()->json(["error" => $e->getMessage()], 404);
+        }
+    }
+
+    /**
+     * @param int $todoId
+     * @return JsonResponse
+     * 
+     * Completes a todo item in the list
+     */
+    public function complete(int $todoId): JsonResponse
+    {
+        try {
+            $response = $this->todoService->complete($todoId);
+
+            return response()->json($response);
+        } catch (\Exception $e) {
+            return response()->json(["error" => $e->getMessage()], 404);
+        }
+    }
+
+    /**
+     * @param int $todoId
+     * @return JsonResponse
+     * 
+     * Deletes a todo item in the list
+     */
+    public function delete(int $todoId): JsonResponse
+    {
+        try {
+            $response = $this->todoService->delete($todoId);
+
+            return response()->json($response);
+        } catch (\Exception $e) {
+            return response()->json(["error" => $e->getMessage], 404);
         }
     }
 }

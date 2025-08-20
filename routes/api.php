@@ -19,4 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/get', [ToDoController::class, 'index']);
+Route::put('/complete/{id}', [ToDoController::class, 'complete']);
+Route::put('/delete/{id}', [ToDoController::class, 'delete']);
 Route::post('/create', [ToDoController::class, 'create']);
